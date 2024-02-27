@@ -6,15 +6,15 @@ interface Game {
 }
 interface FetchGamesResponse {
   count: number;
-  result: Game[];
+  results: Game[];
 }
 const GameGrid = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   useEffect(() => {
     apiClient
-      .get<FetchGamesResponse>("/games")
-      .then((res) => setGames(res.data.result))
+      .get<FetchGamesResponse>("/xgames")
+      .then((res) => setGames(res.data.results))
       .catch((err) => setError(err.message));
   });
   return (
